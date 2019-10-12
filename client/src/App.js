@@ -16,10 +16,10 @@ class App extends React.Component {
       .get('http://localhost:5000/api/players')
       .then(res => {
         this.setState({ 
-          name: res.data
+          players: res.data
         })
 
-        console.log(this.state.name);
+        console.log(this.state);
         console.log(res.data[0].name);
       })
       .catch(error => {
@@ -33,9 +33,15 @@ class App extends React.Component {
         <header className="App-header">
           <h1>Women's World Cup Roster</h1>
         </header>
-        <Player 
-          players={this.state.players}
-        />
+         {this.state.players.map(item => {
+        return (
+          <Player 
+            key={item.id}
+            name={item.name}
+            country={item.country}
+          />
+        )
+      })};
     </div>
     )
   }
