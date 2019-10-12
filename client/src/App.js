@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Player from './Player';
+import DarkModeButton from './DarkModeButton';
 import './App.css';
 
 class App extends React.Component {
@@ -19,8 +20,7 @@ class App extends React.Component {
           players: res.data
         })
 
-        console.log(this.state);
-        console.log(res.data[0].name);
+        // console.log(this.state);
       })
       .catch(error => {
         console.error('Server Error', error);
@@ -32,16 +32,17 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>Women's World Cup Roster</h1>
+          <DarkModeButton />
         </header>
-         {this.state.players.map(item => {
-        return (
-          <Player 
-            key={item.id}
-            name={item.name}
-            country={item.country}
-          />
-        )
-      })};
+          {this.state.players.map(item => {
+            return (
+              <Player 
+                key={item.id}
+                name={item.name}
+                country={item.country}
+              />
+            )
+          })};
     </div>
     )
   }
