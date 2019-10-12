@@ -9,7 +9,7 @@ afterEach(rtl.cleanup);
 it('renders without crashing', () => {
 
 	const wrapper = rtl.render(<App />)
-	wrapper.debug()
+	const element = wrapper.debug(wrapper.getByText("Women's World Cup Roster"))
   // const div = document.createElement('div');
   // ReactDOM.render(<App />, div);
   // ReactDOM.unmountComponentAtNode(div);
