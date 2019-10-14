@@ -6,11 +6,12 @@ import App from './App';
 
 afterEach(rtl.cleanup);
 
-it('renders without crashing', () => {
-
+test('renders without crashing', () => {
 	const wrapper = rtl.render(<App />)
 	const element = wrapper.debug(wrapper.getByText("Women's World Cup Roster"))
-  // const div = document.createElement('div');
-  // ReactDOM.render(<App />, div);
-  // ReactDOM.unmountComponentAtNode(div);
+});
+
+test('renders without crashing', () => {
+	const wrapper = rtl.render(<App />)
+	const element = wrapper.debug(wrapper.getByText("Name"))
 });
